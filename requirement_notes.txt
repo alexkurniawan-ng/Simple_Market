@@ -1,0 +1,15 @@
+Requirement User :
+1. Register User
+2. Login User
+3. Data : username, password, email, role(admin, user) => Class Constructor
+
+Requirement Product :
+1. Menambah Product
+2. Menghapus Product
+3. Mengedit Product
+4. Melihat Product
+
+Requirement Transaksi :
+1. User Beli, tambah ke Cart
+2. User Bayar
+3. Data : nama produk, foto, qty, price, price total

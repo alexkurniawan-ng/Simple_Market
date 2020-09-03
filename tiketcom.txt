@@ -1,0 +1,24 @@
+membuat aplikasi pembelian tiket pesawat
+
+Requirement User :
+1. Register user
+    - proteksi jika kondisi form kosong
+    - proteksi jika email tidak mengandung @
+    - proteksi jika password < 8
+
+2. Login user
+3. Data : username, password, email, role(admin, user) => class constructor
+
+Requirement Product :
+1. Menambah Product
+2. Melihat Product
+3. Menghapus Product
+4. Mengedit Product
+5. Data : tgl, maskapai gambar, nama maskapai, keberangkatan, kedatangan, jam-berangkat, jam sampai, harga, sisa kursi
+
+Requirement Transaksi:
+1. User Beli, tambah ke cart/keranjang
+2. User Bayar
+3. Data: tgl, maskapai gambar, nama maskapai, keberangkatan, kedatangan, jam-berangkat, jam-sampai, qty, price, pricetotal
+
+tiap tanggal ada 3 maskapai berbeda

@@ -1,0 +1,38 @@
+membuat aplikasi pembelian tiket pesawat
+
+Requirement User :
+1. Register user
+    - proteksi jika kondisi form kosong
+    - proteksi jika email tidak mengandung @
+    - proteksi jika password < 8
+
+2. Login user
+3. Data : username, password, email, role(admin, user) => class constructor
+
+Requirement Product :
+1. Menambah Product
+2. Melihat Product
+3. Menghapus Product
+4. Mengedit Product
+5. Data : tgl, maskapai gambar, nama maskapai, keberangkatan, kedatangan, jam-berangkat, jam sampai, harga, sisa kursi
+
+Requirement Transaksi:
+1. User Beli, tambah ke cart/keranjang
+2. User Bayar
+3. Data: tgl, maskapai gambar, nama maskapai, keberangkatan, kedatangan, jam-berangkat, jam-sampai, qty, price, pricetotal
+
+tiap tanggal ada 3 maskapai berbeda
+
+
+
+air asia : https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/AirAsia_NewLogo.svg/1200px-AirAsia_NewLogo.svg.png
+
+lion air : https://logos-download.com/wp-content/uploads/2016/05/Lion_Air_logo_logotype.png
+
+sriwijaya air : https://upload.wikimedia.org/wikipedia/commons/e/ea/LOGO_SJ_VERTIKAL.png
+
+garuda indonesia : https://img2.pngdownload.id/20180816/ogy/kisspng-logo-garuda-indonesia-airline-flight-5b753dbf0201c2.8585218915344101750082.jpg
+
+Singapore airline : https://cdn.worldvectorlogo.com/logos/singapore-airlines.svg
+
+batik air : https://img2.pngdownload.id/20180905/pop/kisspng-batik-air-jakarta-logo-airplane-airline-5b9077f8952323.6709789015361945526109.jpg

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple Tiket</title>
+</head>
+<body>
+    <div>
+        <center>
+            <fieldset id="menuAwal" style="width: 300px;">
+                <legend>Pilih Menu</legend>
+                <button class="btnMenu login" type="button" onclick="btMenu('login')">Login</button><br><br>
+                <button class="btnMenu" type="button" onclick="btMenu('regis')">Register</button>
+            </fieldset>
+
+            <fieldset id="registerPage" style="width: 300px;">
+                <legend>Register</legend>
+                <form id="formRegister">
+                    <input class='inputLogin' type="text" id="regisName" placeholder="Masukkan Nama"><br>
+                    <input class='inputLogin' type="text" id="regisEmail" placeholder="Masukkan Email"><br>
+                    <input class='inputLogin' type="password" id="regisPass" placeholder="Masukkan Password"><br>
+                    <button class="btnMenu login" type="button" onclick="btRegis()">Register</button>
+                </form>
+            </fieldset>
+            
+            <fieldset id="loginPage" style="width: fit-content;">
+                <legend>Login</legend>
+                <h3 id="welcomeUser"></h3>
+                <input class='inputLogin' type="text" id="loginName" placeholder="Username"><br>
+                <input class='inputLogin' type="password" id="loginPass" placeholder="Password"><br>
+                <button class="btnLogin login" type="button" id="btMasuk" onclick="btLogin()">Login</button>
+                <button class="btnLogin logout" type="button" id="btKeluar" onclick="btKeluar()">Logout</button>
+            </fieldset>
+            
+            <fieldset id="addTicket-page" style="width: fit-content;">
+                <legend>Tambah Tiket</legend>
+                <form id="formTicket">
+                    <input class='inputTiket' type="date" id="tglTiket" value="2020-09-02"><br>
+                    <!-- <input class='inputTiket' type="text" id="logoMaskapai" placeholder="Link Logo"><br> -->
+                    Maskapai : 
+                    <select name="maskapai" id="namaMaskapai">
+                        <option value="Air Asia">Air Asia</option>
+                        <option value="Sriwijaya Air">Sriwijaya Air</option>
+                        <option value="Garuda Indonesia">Garuda Indonesia</option>
+                        <option value="Singapore Airline">Singapore Airline</option>
+                        <option value="Batik Air">Batik Air</option>
+                    </select><br>
+                    <!-- <input class='inputTiket' type="text" id="namaMaskapai" placeholder="Nama Maskapai"><br> -->
+                    <input class='inputTiket small' type="text" id="asal" placeholder="Asal">
+                    <input class='inputTiket small' type="text" id="tujuan" placeholder="Tujuan"><br>
+                    <input class='inputTiket small' type="time" id="jamBerangkat" value="07:00">
+                    <input class='inputTiket small' type="time" id="jamTiba" value="18:00"><br>
+                    <input class='inputTiket' style="width: 80px" type="number"  id="sisaKursi" placeholder="Sisa Kursi">
+                    <input class='inputTiket' style="width: 300px" type="number" id="hargaTiket" placeholder="Harga Tiket (dalam ribu rupiah)"><br>
+                    <button class="btnLogin login" type="button" onclick="btAddTiket()">Tambah Tiket</button>
+                </form>
+            </fieldset>
+
+            <fieldset id="ticket-page" style="width: fit-content;">
+                <legend>Daftar Penerbangan</legend>
+                Cari Tiket: <input class='inputTiket' type="date" id="searchDate" onchange="searchDate()">
+                <!-- Cari Tiket: <input class='inputTiket' type="date" id="searchText" onchange="searchText()" placeholder="Masukkan Pencarian Anda"><br><br> -->
+                <button class="btnLogin login" onclick="searchDate()">Cari Penerbangan</button><br><br>
+                <!-- <input type="number" id="hargaMin" placeholder="Stock/Harga Minimal"> <input type="number" id="hargaMax" placeholder="Stock/Harga Maximal"> -->
+                <!-- <button onclick="filterStock()">Filter Stock</button>
+                <button onclick="filterHarga()">Filter Harga</button>
+                <button onclick="resetFilter()">Reset</button>
+                <br><br> -->
+                <!-- Sorting: <select id="whatsort">
+                    <option value="ASC">Ascending</option>
+                    <option value="DESC">Descending</option>
+                </select>
+                <button onclick="sortNama()">Sorting by Maskapai</button> 
+                <button onclick="sortStock()">Sorting by Sisa Kursi</button> 
+                <button onclick="sortHarga()">Sorting by Harga Tiket</button> -->
+                <!-- <br><br> -->
+                <table id="ticketFound">
+                    <thead>
+                        <th style="padding: 5px">No</th>
+                        <th style="padding: 5px">Tanggal Penerbangan</th>
+                        <th style="padding: 5px; width: 150px;">Logo Maskapai</th>
+                        <th style="padding: 5px">Nama Maskapai</th>
+                        <th style="padding: 5px; width: 200px">Asal Penerbangan</th>
+                        <th style="padding: 5px; width: 200px">Tujuan Penerbangan</th>
+                        <th style="padding: 5px; width: 100px">Jam Keberangkatan</th>
+                        <th style="padding: 5px; width: 100px">Jam Tiba</th>
+                        <th style="padding: 5px; width: 100px">Sisa Kursi</th>
+                        <th style="padding: 5px; width: 100px">Harga</th>
+                        <th style="padding: 5px; width: 150px">Action</th>
+                    </thead>
+                    <tbody id="listTiket">
+                    </tbody>
+                </table>
+            </fieldset>
+            <fieldset id="cart-page" style="width: fit-content;">
+                <legend>Keranjang Order</legend>
+                <table>
+                    <thead>
+                        <th style="padding: 5px">No</th>
+                        <th style="padding: 5px">Tanggal Penerbangan</th>
+                        <th style="padding: 5px; width: 150px;">Logo</th>
+                        <th style="padding: 5px">Nama Maskapai</th>
+                        <th style="padding: 5px; width: 200px">Asal Penerbangan</th>
+                        <th style="padding: 5px; width: 200px">Tujuan Penerbangan</th>
+                        <th style="padding: 5px; width: 100px">Jam Keberangkatan</th>
+                        <th style="padding: 5px; width: 100px">Jam Tiba</th>
+                        <th style="padding: 5px; width: 100px">Sisa Kursi</th>
+                        <th style="padding: 5px; width: 100px">Price</th>
+                        <th style="padding: 5px; width: 100px">Price Total</th>
+                        <th style="padding: 5px; width: 150px">Action</th>
+                    </thead>
+                    <tbody id="listOrder">
+                        
+                    </tbody>
+                </table>
+                <h3 id="payment-page"></h3>
+                <button class="btnLogin login" type="button" onclick="bayar()">Bayar</button>
+            </fieldset>
+        </div>
+    </center>
+</body>
+<script src="./sistemSimpleTicket.js"></script>
+</html>

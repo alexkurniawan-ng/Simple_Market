@@ -1,0 +1,13 @@
+<script>
+let n = parseInt(prompt("jumlah segitiga"));
+let x = ''
+
+for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+        x += `${n - (i - j - 1)} `
+    }
+    x += '<br>'
+}
+
+document.write(x)
+</script>

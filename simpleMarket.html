@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Simple Market</title>
+</head>
+<body>
+    <div>
+        <fieldset id="menuAwal" style="width: 900px;">
+            <legend>Pilih Menu</legend>
+            <button type="button" onclick="btMenu('login')">Login</button>
+            <button type="button" onclick="btMenu('regis')">Register</button>
+        </fieldset>
+
+        <fieldset id="registerPage" style="width: 900px;">
+            <legend>Register</legend>
+            <form id="formRegister">
+                <input type="text" id="regisName" placeholder="Masukkan Nama">
+                <input type="text" id="regisEmail" placeholder="Masukkan Email">
+                <input type="password" id="regisPass" placeholder="Masukkan Password">
+                <button type="button" onclick="btRegis()">Register</button>
+            </form>
+        </fieldset>
+
+        <fieldset id="loginPage" style="width: 900px;">
+            <legend>Login</legend>
+            <input type="text" id="loginName" placeholder="Username">
+            <input type="password" id="loginPass" placeholder="Password">
+            <button type="button" id="btMasuk" onclick="btLogin()">Login</button>
+            <button type="button" id="btKeluar" onclick="btKeluar()">Logout</button>
+        </fieldset>
+
+        <fieldset id="addProduct-page" style="width: 900px;">
+            <legend>Tambah Produk</legend>
+            <form id="formProduk">
+                <input type="text" id="namaProduk" placeholder="Nama Produk">
+                <input type="text" id="fotoProduk" placeholder="Link Foto">
+                <input type="text" id="deskProduk" placeholder="Deskripsi">
+                <input type="number" style="width: 5%" id="stockProduk" placeholder="Stock Produk">
+                <input type="number" id="hargaProduk" placeholder="Harga Produk">
+                <button type="button" onclick="btAddProduk()">Tambah Produk</button>
+            </form>
+        </fieldset>
+
+        <fieldset id="product-page" style="width: 900px;">
+            <legend>List Produk</legend>
+            Search: <input type="text" id="searchText" onchange="searchText()" placeholder="Masukkan Pencarian Anda">
+            <button onclick="searchText()">Cari Produk</button>
+            <input type="number" id="hargaMin" placeholder="Stock/Harga Minimal"> <input type="number" id="hargaMax" placeholder="Stock/Harga Maximal">
+            <button onclick="filterStock()">Filter Stock</button>
+            <button onclick="filterHarga()">Filter Harga</button>
+            <button onclick="resetFilter()">Reset</button>
+            <br><br>
+            Sorting: <select id="whatsort">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+            </select>
+            <button onclick="sortNama()">Sorting by Nama</button> 
+            <button onclick="sortStock()">Sorting by Stock</button> 
+            <button onclick="sortHarga()">Sorting by Harga</button>
+            <br><br>
+            <table style="text-align: center;">
+                <thead>
+                    <th style="padding: 5px">No</th>
+                    <th style="padding: 5px; width: 150px;">Foto Produk</th>
+                    <th style="padding: 5px">Nama Produk</th>
+                    <th style="padding: 5px; width: 200px">Deskripsi</th>
+                    <th style="padding: 5px; width: 100px">Stock</th>
+                    <th style="padding: 5px; width: 100px">Harga</th>
+                    <th style="padding: 5px; width: 100px">Action</th>
+                </thead>
+                <tbody id="listProduk">
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset id="cart-page" style="width: 900px; text-align: center;">
+            <legend>Keranjang Belanja</legend>
+            <table>
+                <thead>
+                    <th style="padding: 5px">No</th>
+                    <th style="padding: 5px; width: 150px;">Foto Produk</th>
+                    <th style="padding: 5px">Nama Produk</th>
+                    <th style="padding: 5px; width: 100px">Qty</th>
+                    <th style="padding: 5px; width: 100px">Price</th>
+                    <th style="padding: 5px; width: 100px">Price Total</th>
+                    <th style="padding: 5px; width: 200px">Action</th>
+                </thead>
+                <tbody id="listKeranjang">
+                    
+                </tbody>
+            </table>
+            <h3 id="payment-page"></h3>
+            <button type="button" onclick="bayar()">Bayar</button>
+        </fieldset>
+        <!-- <fieldset id="checkout-page" style="width: 900px">
+            <legend>Checkout</legend>
+            <table>
+                <thead>
+                    <th>Total Harga</th>
+                    <th>Action</th>
+                </thead>
+                <tbody id="listCheckout">
+                    
+                </tbody>
+            </table>
+
+        </fieldset> -->
+    </div>
+</body>
+<script src="./sistemSimpleMarket.js"></script>
+</html>
